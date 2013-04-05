@@ -86,6 +86,7 @@ def restore(files)
     cmd.push(Config['mysql']['mysql_cmd'])
     cmd.push("-u#{Config['mysql']['user']}")
     cmd.push("-p#{Config['mysql']['pass']}")
+    cmd.push("-h#{Config['mysql']['host']}")
     cmd.push(db)
     system cmd.join(' ')
   end
@@ -93,7 +94,7 @@ end
 
 def clean(files)
   files.each do |file|
-    unlink file
+    File.unlink file
   end
 end
 
