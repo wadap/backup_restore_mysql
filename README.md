@@ -1,10 +1,20 @@
 backup restore mysql
 ==========
 
-## 初期設定
-awsの認証情報を保持するために、pitを仕様しています。以下のようにすれば設定ができるようになります。
+## 概要
+mysqldumpをとって、S3へバックアップ/S3からリストアするscriptです。
+
+## セットアップ
 
 ```
-export $EDITOR=vi
-ruby ./backup_mysql.rb
+$ git clone git@github.com:wadap/backup_restore_mysql.git
+$ bundle install --path vendor/bundle
+```
+
+## 初期設定
+awsの認証情報を保持するために、pitを使用しています。以下のようにすればエディタが立ち上がるので設定してください。
+
+```
+$ export $EDITOR=vi
+$ bundle exec backup_restore_mysql.rb
 ```
